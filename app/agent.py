@@ -3,8 +3,17 @@
 import os
 
 from azure.ai.projects import AIProjectClient
-from azure.identity import DefaultAzureCredential
+from azure.identity import ClientSecretCredential, DefaultAzureCredential
 from azure.monitor.opentelemetry import configure_azure_monitor
+
+
+def tool_credential() -> ClientSecretCredential:
+    """ListAzureResources runs as the app: Azure logs show the app, not the user who asked."""
+    return ClientSecretCredential(
+        tenant_id=os.environ["AZURE_TENANT_ID"],
+        client_id=os.environ["POSTURE_CLIENT_ID"],
+        client_secret=os.environ["POSTURE_CLIENT_SECRET"],
+    )
 
 
 def main() -> None:

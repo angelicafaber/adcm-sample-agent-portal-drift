@@ -5,6 +5,7 @@ baseline_version: 0.9.0
 owner: angelica.faber@contoso.com
 sponsor: security.lead@contoso.com
 data_classification: confidential
+invocation: interactive
 identity:
   type: entra_agent_id
   blueprint_id: 00000000-0000-0000-0000-00000000a002
@@ -18,6 +19,7 @@ tools:
     type: openapi
     write: false
     approval: none
+    auth: app_only
 telemetry:
   enabled: true
 deployments:
