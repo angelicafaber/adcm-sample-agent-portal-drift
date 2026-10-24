@@ -2,8 +2,8 @@ schema: adcm.agent/v1
 name: posture-iq
 description: Reviews Azure resource posture and summarises findings for the security team.
 baseline_version: 0.9.0
-owner: angelica.faber@contoso.com
-sponsor: security.lead@contoso.com
+owner: wilma@msafaber.com
+sponsor: wes@msafaber.com
 data_classification: confidential
 invocation: interactive
 identity:
