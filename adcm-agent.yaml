@@ -1,0 +1,26 @@
+schema: adcm.agent/v1
+name: posture-iq
+description: Reviews Azure resource posture and summarises findings for the security team.
+baseline_version: 0.9.0
+owner: angelica.faber@contoso.com
+sponsor: security.lead@contoso.com
+data_classification: confidential
+identity:
+  type: entra_agent_id
+  blueprint_id: 00000000-0000-0000-0000-00000000a002
+model:
+  deployment: gpt-4.1
+  content_safety:
+    enabled: true
+    rai_policy: Microsoft.DefaultV2
+tools:
+  - name: ListAzureResources
+    type: openapi
+    write: false
+    approval: none
+telemetry:
+  enabled: true
+deployments:
+  - platform: foundry
+    project_endpoint: https://afaber-new-project-resource.services.ai.azure.com/api/projects/afaber-new-project
+    agent_name: PostureIQv2
